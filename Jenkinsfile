@@ -25,7 +25,7 @@ pipeline {
       stage ('Docker build and Push Stage') {
             steps{
               sh 'printenv'
-              sh 'docker build -t rnaeem/numeric-app:""$GIT_COMMT"" .'
+              sh 'docker build --tag rnaeem/numeric-app:""$GIT_COMMT"" .'
               sh 'docker push rnaeem/numeric-app:""$GIT_COMMIT""'
 
             }
