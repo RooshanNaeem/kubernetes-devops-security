@@ -24,7 +24,7 @@ pipeline {
         }
       stage ('Docker build and Push Stage') {
             steps{
-                withDockerRegistry([credentialsId: "dockethub", url: ""]){
+                withDockerRegistry([credentialsId: "dockerhub", url: ""]){
 
                   sh 'printenv'
                   sh 'docker build -t rnaeem/numeric-app:""$GIT_COMMT"" .'
