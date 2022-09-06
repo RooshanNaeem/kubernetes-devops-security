@@ -8,7 +8,7 @@ pipeline {
               archive 'target/*.jar' //Adding comment 
             }
           }
-      stage('Unit Test') {
+      stage('Unit Test- JUnit and Jacoco') {
             steps {
               sh "mvn test" 
             }
@@ -22,7 +22,22 @@ pipeline {
 
             }
         }
+
+      stage('Mutation Test - PIT') {
+            steps {
+              sh "mvn org.pitest:pitest-maven:mutationCoverage" 
+            }
+            post {
+              always {
+
+                pimutation mutationStatsFile: '**/target/pit-reports/**/mutation.xml'
+              }
+
+
+            }
+        }        
       stage ('Docker build and Push Stage') {
+
             steps{
                 withDockerRegistry([credentialsId: "dockerhub", url: ""]){
 
