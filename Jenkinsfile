@@ -30,7 +30,7 @@ pipeline {
             post {
               always {
 
-                pimutation mutationStatsFile: '**/target/pit-reports/**/mutation.xml'
+                pimutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
               }
 
 
