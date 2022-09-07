@@ -22,10 +22,12 @@ pipeline {
 
             }
         }
-    stage('SonarQube Analysis - SAST') {
-        def mvn = tool 'Default Maven';
-        withSonarQubeEnv() {
+      stage('SonarQube Analysis - SAST') {
+            steps{
+              def mvn = tool 'Default Maven';
+              withSonarQubeEnv() {
               sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Numeric-app"
+            }
           }
         }  
 
