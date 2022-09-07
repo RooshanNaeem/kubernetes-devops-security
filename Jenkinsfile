@@ -24,10 +24,7 @@ pipeline {
         }
       stage('SonarQube Analysis - SAST') {
             steps{
-              def mvn = tool 'Default Maven';
-              withSonarQubeEnv() {
-              sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Numeric-app"
-            }
+              sh "mvn sonar:sonar -Dsonar.projectKey=Numeric-app -Dsonar.host.url=http://devsecops-demo2.eastus.cloudapp.azure.com:9000 -Dsonar.login=sqp_e4598d06aca6cf28448f168d283a543d3ce79520"
           }
         }  
 
