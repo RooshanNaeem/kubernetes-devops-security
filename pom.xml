@@ -82,7 +82,23 @@
 						<outputFormat>HTML</outputFormat>
 					</outputFormats>
 				</configuration>
-			</plugin>			
+			</plugin>
+
+			<plugin>
+				<groupId>org.owasp</groupId>
+				<artifactId>dependency-check-maven</artifactId>
+				<version>7.1.2</version>
+				<type>maven-plugin</type>
+				<configuration>
+					<format>all</format>
+					<failBuildOnCVSS>9</failBuildOnCVSS>
+				</configuration>
+			</plugin>
+
+
+
+
+
 		</plugins>
 	</build>
 
