@@ -25,17 +25,17 @@ pipeline {
             steps{
               withSonarQubeEnv('SonarQube'){
             sh "mvn sonar:sonar -Dsonar.projectKey=numeric-app -Dsonar.host.url=http://devsecops-demo2.eastus.cloudapp.azure.com:9000"
-          }
+            }
             
-      }
-    }    
+          }
+        }    
       stage('Vulnerability Scan') {
             steps {
               parallel {
-                "Dependency Check"{
+                'Dependency Check':{
                   sh "mvn dependency-check:check"
                 }
-                "Trivy Scan"{
+                'Trivy Scan' :{
                   sh "bash trivy-docker-image-scan.sh"
 
                 }
