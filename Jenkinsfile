@@ -22,14 +22,7 @@ pipeline {
 
             }
         }
-      stage('SonarQube Analysis - SAST') {
-            steps{
-              withSonarQubeEnv('SonarQube'){
-            sh "mvn sonar:sonar -Dsonar.projectKey=numeric-app -Dsonar.host.url=http://devsecops-demo2.eastus.cloudapp.azure.com:9000 -Dsonar.login=f152cfea314af5df449327976f133c3e32e53a99"
-          }
-            
-      }
-    }
+
       stage('Mutation Test - PIT') {
             steps {
               sh "mvn org.pitest:pitest-maven:mutationCoverage" 
@@ -42,7 +35,15 @@ pipeline {
 
 
             }
-        }        
+        }
+      stage('SonarQube Analysis - SAST') {
+            steps{
+              withSonarQubeEnv('SonarQube'){
+            sh "mvn sonar:sonar -Dsonar.projectKey=numeric-app -Dsonar.host.url=http://devsecops-demo2.eastus.cloudapp.azure.com:9000 -Dsonar.login=f152cfea314af5df449327976f133c3e32e53a99"
+          }
+            
+      }
+    }                
       stage ('Docker build and Push Stage') {
 
             steps{
