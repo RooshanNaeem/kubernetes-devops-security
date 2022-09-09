@@ -9,6 +9,6 @@ deny[msg] {
 
 deny[msg] {
    input.kind= "Deployment"
-   not input.spec.template.spec.containers[0].securityContext.runAsNonroot = true
+   not input.spec.template.spec.containers[0].securityContext.runAsUser = 1000
    msg = "Not run as root user"
 }
