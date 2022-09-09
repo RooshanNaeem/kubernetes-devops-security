@@ -97,5 +97,5 @@ multi_stage = true {
 }
 deny[msg] {
     multi_stage == true
-    msg = sprintf("You have used COPY)
+    msg = sprintf(You have used COPY)
 }
