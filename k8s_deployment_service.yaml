@@ -9,8 +9,6 @@ spec:
   selector:
     matchLabels:
       app: devsecops
-  securityContext:
-    runAsNonRoot: true
   strategy: {}
   template:
     metadata:
