@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment{
-    deploymentName = "devsecops"
+    deploymentName = "secops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName  = "rnaeem/numeric-app:${GIT_COMMIT}"
