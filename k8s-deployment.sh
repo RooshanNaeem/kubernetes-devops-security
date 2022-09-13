@@ -10,6 +10,6 @@ then
 else
 	echo "deployment ${deploymentName} exists" 
 	echo "image name - ${imageName}"
-	kubectl -n default set image deploy ${deploymentName} ${containerName}-${imageName} --record=true
+	kubectl -n default set image deploy ${deploymentName} ${containerName}=${imageName} --record=true
 
 fi
