@@ -1,6 +1,16 @@
 pipeline {
   agent any
 
+  environemnt{
+    deploymentName = "devsecops"
+    containerName = "devsecops-container"
+    serviceName = "devsecops-svc"
+    imageName  = "rnaeem/numeric-app:${GIT_COMMIT}"
+    applicationURL = "http://devsecops-demo2.eastus.cloudapp.azure.com/"
+    aplicationURI = "/increment/99"
+
+  }
+
   stages {
       stage('Build Artifact') {
             steps {
@@ -73,15 +83,6 @@ pipeline {
         } 
 
 
-      stage ('Kubernetes Deployment - DEV') {
-            steps{
-                withKubeConfig([credentialsId: 'kubeconfig']){
-
-                  sh "bash k8s-deployment.sh"
-            }
-        }
-
-      }
       stage('Kubernetes Deployment - DEV') {
             parallel {
               stage ('Deployemnet') {
@@ -92,7 +93,7 @@ pipeline {
                 }
                   } 
                 }
-              stage ('rollout Status') {
+              stage ('Rollout Status') {
                 steps {
                   withKubeConfig([credentialsId: 'kubeconfig']){
 
