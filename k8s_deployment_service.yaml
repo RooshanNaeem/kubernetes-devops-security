@@ -1,9 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: devsecops
   labels:
     app: devsecops
-  name: devsecops
+  
 spec:
   replicas: 2
   selector:
@@ -21,13 +22,14 @@ spec:
         securityContext:
           runAsNonRoot: true
           runAsUser: 100
----
+
 apiVersion: v1
 kind: Service
 metadata:
+  name: devsecops-svc
   labels:
     app: devsecops
-  name: devsecops-svc
+  
 spec:
   ports:
   - port: 8080
