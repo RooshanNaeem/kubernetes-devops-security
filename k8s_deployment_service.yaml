@@ -28,7 +28,6 @@ metadata:
   name: devsecops-svc
   labels:
     app: devsecops
-  
 spec:
   ports:
   - port: 8080
