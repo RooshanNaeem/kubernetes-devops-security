@@ -6,6 +6,7 @@ metadata:
     app: devsecops
   
 spec:
+  serviceAccountName: default
   replicas: 2
   selector:
     matchLabels:
@@ -20,6 +21,7 @@ spec:
       - image: replace
         name: devsecops-container
         securityContext:
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
           runAsUser: 100
 ---
