@@ -5,7 +5,7 @@
 # using kubesec v2 api
 scan_result=$(curl -sSX POST --data-binary @"k8s_deployment_service.yaml" https://v2.kubesec.io/scan)
 scan_message=$(curl -sSX POST --data-binary @"k8s_deployment_service.yaml" https://v2.kubesec.io/scan | jq .[0].message -r )
-scan_score=$(curl -sSX POST --data-binary @"k8s_deployment_service.yaml" https://v2.kubesec.io/scan | jq .[0].score )
+scan_score=$(curl -sSX POST --data-binary @"k8s_deployment_service.yaml" https://v2.kubesec.io/scan | jq .[0].score)
 
 
 #using kubesec docker image for scanning
@@ -23,4 +23,4 @@ else
 	echo "Score is $scan_score, which is less than or equal to 5."
 	echo "Scanning K8s resoutces has failed"
 exit 1;
-fi;
+fi

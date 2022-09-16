@@ -10,4 +10,4 @@ then
 else
 	echo "Deployemnt ${deploymentName} rollout is Success" 
 
-fi;
+fi
