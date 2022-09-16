@@ -18,13 +18,12 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - image: rnaeem/numeric-app:${GIT_COMMIT}
+      - image: replace
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
           runAsUser: 100
           readOnlyRootFilesystem: true
----
 apiVersion: v1
 kind: Service
 metadata:
