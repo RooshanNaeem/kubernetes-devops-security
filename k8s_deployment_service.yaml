@@ -31,7 +31,7 @@ metadata:
   name: devsecops-svc
   labels:
     app: devsecops
-  spec:
+spec:
   ports:
   - port: 8080
     protocol: TCP
