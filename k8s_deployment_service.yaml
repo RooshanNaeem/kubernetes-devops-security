@@ -17,7 +17,7 @@ spec:
         app: devsecops
     spec:
       containers:
-      - image: replace
+      - image: rnaeem/numeric-app:${GIT_COMMIT}
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
