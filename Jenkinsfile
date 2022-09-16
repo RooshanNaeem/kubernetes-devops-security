@@ -102,14 +102,14 @@ pipeline {
                 }
                   } 
                 }
-//              stage ('Rollout Status') {
-//                steps {
-//                  withKubeConfig([credentialsId: 'kubeconfig']){
-//
-//                   sh "bash k8s-deployment-rollout-status.sh"
-//                 }
-//                  } 
-//                }
+              stage ('Rollout Status') {
+                steps {
+                  withKubeConfig([credentialsId: 'kubeconfig']){
+
+                   sh "bash k8s-deployment-rollout-status.sh"
+                 }
+                  } 
+                }
 
               } 
       }
