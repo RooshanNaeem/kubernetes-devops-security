@@ -4,6 +4,7 @@ metadata:
   name: devsecops
   labels:
     app: devsecops
+  
 spec:
   replicas: 2
   selector:
