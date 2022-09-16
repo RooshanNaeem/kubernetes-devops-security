@@ -17,7 +17,7 @@ spec:
         app: devsecops
     spec:
       containers:
-      - image: rnaeem/numeric-app 
+      - image: replace
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
