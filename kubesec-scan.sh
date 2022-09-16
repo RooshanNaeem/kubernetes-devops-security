@@ -20,7 +20,7 @@ if [[ "${scan_score}" -ge 5 ]]; then
 	echo "Score is $scan_score"
 	echo "Kubesec Scan $scan_message"
 else
-echo "Score is $scan_score, which is less than or equal to 5."
-echo "Scanning K8s resoutces has failed"
+	echo "Score is $scan_score, which is less than or equal to 5."
+	echo "Scanning K8s resoutces has failed"
 exit 1;
 fi;
