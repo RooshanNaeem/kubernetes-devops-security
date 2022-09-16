@@ -24,7 +24,8 @@ spec:
           runAsNonRoot: true
           runAsUser: 100
           readOnlyRootFilesystem: true
-___
+--
+
 apiVersion: v1
 kind: Service
 metadata:
