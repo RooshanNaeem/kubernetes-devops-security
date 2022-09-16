@@ -75,7 +75,7 @@ pipeline {
 
       }
 
-      stage('Vulnerability Scan') {
+      stage('Vulnerability Scan- k8s') {
             parallel {
               stage ('OPA Scan') {
                 steps {
