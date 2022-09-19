@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: devsecops-container 
-        image: rnaeem/numeric-app:${GIT_COMMIT}      
+        image: replace     
         volumeMounts:
         - mountPath: /tmp
           name: vol
