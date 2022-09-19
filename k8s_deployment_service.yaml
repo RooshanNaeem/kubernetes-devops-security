@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       containers:
       - image: replace
-        name: devsecops-container       
+          name: devsecops-container       
         volumeMounts:
         - mountPath: /tmp
           name: vol
