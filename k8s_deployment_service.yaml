@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devsecops
+  name: devsecops-demo
   labels:
-    app: devsecops
+    app: devsecops-demo
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: devsecops
+      app: devsecops-demo
   strategy: {}
   template:
     metadata:
       labels:
-        app: devsecops
+        app: devsecops-demo
     spec:
       volumes:
       - name: vol
@@ -35,12 +35,12 @@ kind: Service
 metadata:
   name: devsecops-svc
   labels:
-    app: devsecops
+    app: devsecops-demo
 spec:
   ports:
   - port: 8080
     protocol: TCP
     targetPort: 8080
   selector:
-    app: devsecops
+    app: devsecops-demo
   type: NodePort

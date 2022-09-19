@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment{
-    deploymentName = "devsecops"
+    deploymentName = "devsecops-demo"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName  = "rnaeem/numeric-app:${GIT_COMMIT}"
@@ -111,8 +111,8 @@ pipeline {
                 steps {
                   withKubeConfig([credentialsId: 'kubeconfig']){
 
-                  // sh "bash k8s-deployment-rollout-status.sh"
-                     echo "skipping rollout step"
+                   sh "bash k8s-deployment-rollout-status.sh"
+                   //  echo "skipping rollout step"
                  }
                   } 
                 }
