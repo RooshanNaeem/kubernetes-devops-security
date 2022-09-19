@@ -22,7 +22,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: devsecops-container
-        image: replace        
+      - image: replace        
         volumeMounts:
         - mountPath: /tmp
           name: vol
