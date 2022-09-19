@@ -18,7 +18,7 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - image: replace
+      - image: ${imageName}
         name: devsecops-container
         securityContext:
           runAsNonRoot: true
