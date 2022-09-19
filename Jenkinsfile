@@ -39,7 +39,7 @@ pipeline {
             
           }
         }    
-      stage('Vulnerability Scan') {
+      stage('Vulnerability Scan- Docker') {
             parallel {
               stage ('Dependency Scan') {
                 steps {
@@ -85,6 +85,11 @@ pipeline {
               stage ('Kubesec Scan') {
                 steps {
                   sh "bash kubesec-scan.sh"
+                  } 
+                }
+              stage ('Trivy Scan') {
+                steps {
+                  sh "bash trivy-k8s-scan.sh"
                   } 
                 }
 
