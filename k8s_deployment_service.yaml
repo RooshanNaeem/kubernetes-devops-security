@@ -21,8 +21,8 @@ spec:
         emptyDir: {}  
       serviceAccountName: default
       containers:
-      - image: replace
-        name: devsecops-container
+      - name: devsecops-container
+        image: replace        
         volumeMounts:
         - mountPath: /tmp
           name: vol
