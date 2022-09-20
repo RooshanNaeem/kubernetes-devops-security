@@ -120,6 +120,18 @@ pipeline {
               } 
       }
 
+      stage ('OWASP ZAP- DAST') {
+
+            steps{
+                withKubeConfig([credentialsId: 'kubeconfig']){
+
+                   sh "bash zap.sh"
+                   //  echo "skipping rollout step"
+                 }
+        }
+
+      }
+
     }
   post {
     always {
