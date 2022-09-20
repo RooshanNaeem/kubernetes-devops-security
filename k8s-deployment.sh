@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sed -i "s#replace#${imagaeName}#g" k8s_deployment_service.yaml
-kubectl -n default get ${deploymentName}
+kubectl -n default get deployment/${deploymentName}
 
 if [[ $? -ne 0 ]]; 
 then
