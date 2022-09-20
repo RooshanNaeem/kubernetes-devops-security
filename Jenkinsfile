@@ -111,8 +111,8 @@ pipeline {
                 steps {
                   withKubeConfig([credentialsId: 'kubeconfig']){
 
-                   sh "bash k8s-deployment-rollout-status.sh"
-                   //  echo "skipping rollout step"
+                   //  sh "bash k8s-deployment-rollout-status.sh"
+                   echo "skipping rollout step"
                  }
                   } 
                 }
