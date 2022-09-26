@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: devsecops-container 
-        image: rnaeem/numeric-app:3c2d81f533b85326528e97f0e1f22798f98a8997    
+        image: rnaeem/numeric-app:6b1617ca6af4933a765fc7d6ca8bfb170fda167dlatest
         volumeMounts:
         - mountPath: /tmp
           name: vol
