@@ -41,9 +41,6 @@ spec:
   - port: 8080
     protocol: TCP
     targetPort: 8080
-  containers:
-  - name: devsecops-container 
-    image: rnaeem/numeric-app:794e8fb5dd4763956ba9140d5ac33fd4745e4012
   selector:
     app: devsecops
   type: NodePort
