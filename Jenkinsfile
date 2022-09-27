@@ -1,3 +1,5 @@
+@Library('slack') _
+
 pipeline {
   agent any
 
@@ -12,7 +14,7 @@ pipeline {
   }
 
   stages {
-      stage('Build Artifact') {
+/*      stage('Build Artifact') {
             steps {
               sh "mvn clean package -DskipTests=true"
               archive 'target/*.jar' //Adding comment 
@@ -130,17 +132,25 @@ pipeline {
                  }
         }
 
-      }
+      }*/
+      stage ('SLACK TEST') {
 
+            steps{
+              sh "exit 0"
+            }
+        }
+
+      }
     }
+  
   post {
     always {
-                junit 'target/surefire-reports/*.xml'
-                jacoco execPattern: 'target/jacoco.exec'
-                pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
-                dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP Report', reportTitles: 'OWASP ZAP Report'])
-
+//                junit 'target/surefire-reports/*.xml'
+//                jacoco execPattern: 'target/jacoco.exec'
+//                pitmutation mutationStatsFile: '**/target/pit-reports/**/mutations.xml'
+//               dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'
+//                publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'owasp-zap-report', reportFiles: 'zap_report.html', reportName: 'OWASP ZAP Report', reportTitles: 'OWASP ZAP Report'])
+                sendNotification currentBuild.result
     }
   //  success {
 
@@ -149,6 +159,5 @@ pipeline {
 
 
  //   }
-
-  }
 }
+ 
