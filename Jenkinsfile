@@ -131,6 +131,16 @@ pipeline {
         }
 
       }
+      stage ('Deploy on PROD?') {
+
+            steps{
+                timeout(time: 2, unit: 'DAYS'{
+                   input "Approval required to deploy the app on Production environment Yes/No?"
+                   //  echo "skipping rollout step"
+                 }
+        }
+
+      }
 
     }
   post {
