@@ -162,7 +162,7 @@ pipeline {
               } 
       }
 
-      /*stage('Kubernetes Deployment - Production') {
+      stage('Kubernetes Deployment - Production') {
             parallel {
               stage ('Deployemnet') {
                 steps {
@@ -187,7 +187,7 @@ pipeline {
                 }
 
               } 
-      }*/
+      }
 
       
 
