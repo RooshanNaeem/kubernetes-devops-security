@@ -18,7 +18,7 @@ spec:
       volumes:
       - name: vol
         emptyDir: {}  
-      serviceAccountName: prod
+      serviceAccountName: default
       containers:
       - name: devsecops-container 
         image: rnaeem/numeric-app
