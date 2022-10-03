@@ -168,8 +168,10 @@ pipeline {
                 steps {
                   withKubeConfig([credentialsId: 'kubeconfig']){
 
-                  sh "sed -i 's#replace#${imageName}#g' k8s_Prod_deployment_service.yaml"
-                  sh "kubectl -n default get deployment/${deploymentName}"
+                    sh "bash k8s_deployment_prod.sh"
+
+                  //sh "sed -i 's#replace#${imageName}#g' k8s_Prod_deployment_service.yaml"
+                  //sh "kubectl -n default get deployment/${deploymentName}"
                   //sh "kubectl -n prod apply -f  k8s_Prod_deployment_service.yaml"
                 }
                   } 
