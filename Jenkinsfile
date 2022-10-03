@@ -160,7 +160,31 @@ pipeline {
                 }
 
               } 
-      } 
+      }
+
+      stage('Kubernetes Deployment - Production') {
+            parallel {
+              stage ('Deployemnet') {
+                steps {
+                  withKubeConfig([credentialsId: 'kubeconfig']){
+
+                  sh "sed -i 's#replace#${imageName}#g' k8s_Prod_deployment_service.yaml"
+                  sh "kubectl -n prod apply -f  k8s_Prod_deployment_service.yaml"
+                }
+                  } 
+                }
+              stage ('Rollout Status') {
+                steps {
+                  withKubeConfig([credentialsId: 'kubeconfig']){
+
+                   sh "bash k8s-Prod-deployment-rollout-status.sh"
+                   //  echo "skipping rollout step"
+                 }
+                  } 
+                }
+
+              } 
+      }
 
       
 
