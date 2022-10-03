@@ -9,5 +9,6 @@ if [[ $(kubectl -n default rollout status deploy ${deploymentName} --timeout 5s)
 else
 	echo "Deployment ${deploymentName} rollout has failed"
 	kubectl -n default rollout undo deploy ${deploymentName}
+	exit 1;
 
 fi
