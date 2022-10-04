@@ -34,6 +34,11 @@ spec:
           runAsNonRoot: true
           runAsUser: 100
           readOnlyRootFilesystem: true
+      tolerations:
+      - key: "node.kubernetes.io/disk-pressure"
+        operator: "Equals"
+        value: "true"
+        effect: "NoSchedule"
       
 ---       
 apiVersion: v1
