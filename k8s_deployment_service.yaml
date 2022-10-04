@@ -36,7 +36,7 @@ spec:
           readOnlyRootFilesystem: true
       tolerations:
       - key: "node.kubernetes.io/disk-pressure"
-        operator: "Equals"
+        operator: "Equal"
         value: "true"
         effect: "NoSchedule"
       
