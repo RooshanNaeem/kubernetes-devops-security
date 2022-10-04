@@ -22,10 +22,6 @@ spec:
       containers:
       - name: devsecops-container 
         image: rnaeem/numeric-app:latest
-      tolerations:
-      - key: "node.kubernetes.io/disk-pressure"
-        operator: "Exists"
-        effect: "NoSchedule"
         resources:
           requests:
             ephemeral-storage: "256Mi"
@@ -38,6 +34,10 @@ spec:
           runAsNonRoot: true
           runAsUser: 100
           readOnlyRootFilesystem: true
+      tolerations:
+      - key: "node.kubernetes.io/disk-pressure"
+        operator: "Exists"
+        effect: "NoSchedule"
 ---       
 apiVersion: v1
 kind: Service
