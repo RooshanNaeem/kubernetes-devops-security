@@ -21,7 +21,7 @@ spec:
       serviceAccountName: default
       containers:
       - name: devsecops-container 
-        image: rnaeem/numeric-app:latest
+        image: rnaeem/numeric-app
         resources:
           requests:
             ephemeral-storage: "256Mi"
