@@ -2,12 +2,12 @@
 
 sleep 60s
 
-if [[ $(kubectl -n prod rollout status deploy ${deploymentName} --timeout 5s) != *"successfully rolled out"* ]];
+if [[ $(kubectl -n prod rollout status deploy ${proddeploymentName}--timeout 5s) != *"successfully rolled out"* ]];
 then
-	echo "Deployemnt ${deploymentName} rollout has failed"
-	kubectl -n prod rollout undo deploy ${deploymentName}
+	echo "Deployemnt ${proddeploymentName} rollout has failed"
+	kubectl -n prod rollout undo deploy ${proddeploymentName}
 	exit 1;
 else
-	echo "Deployemnt ${deploymentName} rollout is Success" 
+	echo "Deployemnt ${proddeploymentName} rollout is Success" 
 
 fi
