@@ -3,6 +3,7 @@ pipeline {
 
   environment{
     deploymentName = "devsecops"
+    proddeploymentName = "devsecops-prod"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
     imageName  = "rnaeem/numeric-app:${GIT_COMMIT}"
@@ -177,13 +178,14 @@ pipeline {
                   } 
                 }
               stage ('Rollout Status') {
-                steps {
+               /* steps {
                   withKubeConfig([credentialsId: 'kubeconfig']){
 
                    sh "bash k8s-Prod-deployment-rollout-status.sh"
                    //  echo "skipping rollout step"
                  }
-                  } 
+                  } */
+                  echo "Skipping for now"
                 }
 
               } 
