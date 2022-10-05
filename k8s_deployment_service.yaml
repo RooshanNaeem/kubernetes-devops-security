@@ -52,7 +52,7 @@ spec:
   - port: 8080
     protocol: TCP
     targetPort: 8080
-    nodeport: 30321
+    nodePort: 30321
   selector:
     app: devsecops
   type: NodePort
