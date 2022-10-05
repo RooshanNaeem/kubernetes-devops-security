@@ -178,14 +178,15 @@ pipeline {
                   } 
                 }
               stage ('Rollout Status') {
-               /* steps {
-                  withKubeConfig([credentialsId: 'kubeconfig']){
+                steps {
+                  /*withKubeConfig([credentialsId: 'kubeconfig']){
 
                    sh "bash k8s-Prod-deployment-rollout-status.sh"
                    //  echo "skipping rollout step"
-                 }
-                  } */
-                  echo "Skipping for now"
+                 }*/
+                      echo "Skipping for now"
+                  }
+                  
                 }
 
               } 
