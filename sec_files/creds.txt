@@ -1,2 +1,3 @@
 secret-password123
 Password=Tempaada2ada!
+dbpass=dbpass
